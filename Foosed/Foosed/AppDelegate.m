@@ -7,9 +7,18 @@
 //
 
 #import "AppDelegate.h"
-#import "DetailViewController.h"
+#import "FSWelcomeViewController.h"
+#import "FSLoginViewController.h"
+#import "FSSignupViewController.h"
 
-@interface AppDelegate () <UISplitViewControllerDelegate>
+// Data
+#import "User.h"
+
+@interface AppDelegate () <FSLoginViewControllerDelegate>
+
+@property (nonatomic, strong) FSWelcomeViewController* welcomeController;
+@property (nonatomic, strong) UINavigationController* navController;
+
 
 @end
 
@@ -17,45 +26,123 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-    UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-    navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
-    splitViewController.delegate = self;
+   
+    
+    // Parse
+    [self setupParse:launchOptions];
+    
+    
+    // Appearance
+    [self setupAppearance];
+
+
+    
+    // RootVC
+    self.navController = (UINavigationController*)self.window.rootViewController;
+    self.welcomeController = (FSWelcomeViewController*)[self.navController.viewControllers objectAtIndex:0];
+
+    
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+- (void)setupParse:(NSDictionary *)launchOptions {
+    
+    [Parse enableLocalDatastore];
+    
+    // Initialize Parse.
+    [Parse setApplicationId:@"1PGjk8BrUPWvAA2odbPb31rbRX52TR8dSP3f5XPN"
+                  clientKey:@"Z9qrrC0XxRWYKOhy3FAOHHrvqR6dB0AUKkRruxoC"];
+    
+    // [Optional] Track statistics around application opens.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    // Register Parse data subclasses
+    [User registerSubclass];
+    
+    // Automatic User
+    [User enableAutomaticUser];
+    
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
+
+#pragma mark - Login/Signup
+- (void)presentLoginViewControllerAnimated:(BOOL)animated withDismissButton:(BOOL)withDismissButton {
+    [self.welcomeController performSegueWithIdentifier:@"welcomeToLogin" sender:nil];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+- (void)userDidLogIn:(PFUser*)user {
+    [self proceedToMainInterface:user];
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+- (void)userHasLoggedIn {
+    [self proceedToMainInterface:[User currentUser]];
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)proceedToMainInterface:(PFUser *)user {
+    
+    // Present the main interface
+    [self.welcomeController performSegueWithIdentifier:@"welcomeToMain" sender:nil];
+
 }
 
-#pragma mark - Split view
+#pragma mark Logout
 
-- (BOOL)splitViewController:(UISplitViewController *)splitViewController collapseSecondaryViewController:(UIViewController *)secondaryViewController ontoPrimaryViewController:(UIViewController *)primaryViewController {
-    if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[DetailViewController class]] && ([(DetailViewController *)[(UINavigationController *)secondaryViewController topViewController] detailItem] == nil)) {
-        // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-        return YES;
-    } else {
-        return NO;
+- (void)logOut {
+    
+    // clear NSUserDefaults
+    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+
+    // Clear all caches
+    [PFQuery clearAllCachedResults];
+    
+    // Log out
+    [PFUser logOut];
+    
+    [self.navController popToRootViewControllerAnimated:NO];
+    
+    [self presentLoginViewControllerAnimated:YES withDismissButton:NO];
+}
+
+#pragma mark FSLoginViewController Delegate
+- (void)logInViewController:(FSLoginViewController *)logInController didLogInUser:(PFUser *)user {
+    
+    [self.welcomeController.presentedViewController dismissViewControllerAnimated:YES completion:^{
+        [self userDidLogIn:user];
+    }];
+}
+
+
+
+- (void)logInViewController:(FSLoginViewController *)logInController didSignUpUser:(PFUser *)user {
+    
+    [self.welcomeController.presentedViewController dismissViewControllerAnimated:YES completion:^{
+        [self userDidLogIn:user];
+    }];
+    
+}
+
+- (void)logInViewControllerDidCancelLogIn:(FSLoginViewController *)logInController {
+    
+}
+
+
+
+#pragma mark - ()
+- (void) setupAppearance {
+    // Navigation bar appearance (background and title)
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor], NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:20.0f], NSFontAttributeName, nil]];
+    
+    if([UINavigationBar instancesRespondToSelector:@selector(barTintColor)]){ //iOS7
+        [[UINavigationBar appearance] setBarTintColor:[UIColor colorLightBeige]];
     }
-}
+    else {
+        [[UINavigationBar appearance] setBackgroundColor:[UIColor colorLightBeige]];
+        
+    }
+   }
+
 
 @end

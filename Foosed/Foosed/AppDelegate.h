@@ -13,5 +13,10 @@
 @property (strong, nonatomic) UIWindow *window;
 
 
+- (void)presentLoginViewControllerAnimated:(BOOL)animated withDismissButton:(BOOL)withDismissButton;
+- (void)userHasLoggedIn;
+- (void)logOut;
+
+
 @end
 

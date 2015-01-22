@@ -1,0 +1,44 @@
+//
+//  FSPrefix.pch
+//  Foosed
+//
+//  Created by Admin on 1/22/15.
+//  Copyright (c) 2015 Ramsel. All rights reserved.
+//
+
+//#ifndef Foosed_FSPrefix_pch
+//#define Foosed_FSPrefix_pch
+
+#import <Availability.h>
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
+#import <MobileCoreServices/UTCoreTypes.h>
+#import <Parse/Parse.h>
+
+
+// constants
+#import "FSConstants.h"
+
+// data
+//#import "User.h"
+
+
+// managers
+#import "FSDatabaseManager.h"
+
+// categories
+#import "UIColor+Extensions.h"
+
+#endif
+
+
+
+//#endif
+
+
+
+

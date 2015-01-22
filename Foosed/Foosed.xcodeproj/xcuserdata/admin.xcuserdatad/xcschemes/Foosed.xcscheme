@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "84545B2B1A718A3B0083DBF0"
+               BlueprintIdentifier = "84545B601A718F6B0083DBF0"
                BuildableName = "Foosed.app"
                BlueprintName = "Foosed"
                ReferencedContainer = "container:Foosed.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "84545B471A718A3C0083DBF0"
+               BlueprintIdentifier = "84545B791A718F6C0083DBF0"
                BuildableName = "FoosedTests.xctest"
                BlueprintName = "FoosedTests"
                ReferencedContainer = "container:Foosed.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "84545B471A718A3C0083DBF0"
+               BlueprintIdentifier = "84545B791A718F6C0083DBF0"
                BuildableName = "FoosedTests.xctest"
                BlueprintName = "FoosedTests"
                ReferencedContainer = "container:Foosed.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "84545B2B1A718A3B0083DBF0"
+            BlueprintIdentifier = "84545B601A718F6B0083DBF0"
             BuildableName = "Foosed.app"
             BlueprintName = "Foosed"
             ReferencedContainer = "container:Foosed.xcodeproj">
@@ -75,7 +75,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "84545B2B1A718A3B0083DBF0"
+            BlueprintIdentifier = "84545B601A718F6B0083DBF0"
             BuildableName = "Foosed.app"
             BlueprintName = "Foosed"
             ReferencedContainer = "container:Foosed.xcodeproj">
@@ -93,7 +93,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "84545B2B1A718A3B0083DBF0"
+            BlueprintIdentifier = "84545B601A718F6B0083DBF0"
             BuildableName = "Foosed.app"
             BlueprintName = "Foosed"
             ReferencedContainer = "container:Foosed.xcodeproj">
