@@ -9,7 +9,8 @@
 
 typedef enum {
     FSGameTeamA,
-    FSGameTeamB
+    FSGameTeamB,
+    FSGameTeamNone
 } FSGameTeamIndex;
 
 
@@ -19,12 +20,20 @@ typedef enum {
 @property (nonatomic, strong) NSArray *teamB;
 @property (nonatomic, strong) NSNumber *scoreA;
 @property (nonatomic, strong) NSNumber *scoreB;
+@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSNumber *winners;
+@property (nonatomic, assign) BOOL isDeleted;
+
+- (instancetype)initWithZeroedScores;
 
 #pragma mark - Keys
 + (NSString *)teamAKey;
 + (NSString *)teamBKey;
 + (NSString *)scoreAKey;
 + (NSString *)scoreBKey;
++ (NSString *)dateKey;
++ (NSString *)winnersKey;
++ (NSString *)isDeletedKey;
 
 
 @end

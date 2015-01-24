@@ -95,7 +95,7 @@
     // Refresh table here...
     [self didPullRefresh];
     
-    reloading = YES;
+    self.reloading = YES;
     
     [refreshControl endRefreshing];
 }

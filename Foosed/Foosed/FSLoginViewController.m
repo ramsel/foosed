@@ -80,9 +80,6 @@
 }
 
 
-- (IBAction)didTapSignupButton:(id)sender {
-}
-
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -98,12 +95,12 @@
 #pragma mark - JTSignupViewController Delegate 
 - (void)signUpViewController:(FSSignupViewController *)signUpController didSignUpUser:(PFUser *)user {
     
-    [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.presentedViewController dismissViewControllerAnimated:YES completion:^{
+        if (_delegate && [_delegate respondsToSelector:@selector(logInViewController:didSignUpUser:)]) {
+            [_delegate logInViewController:self didSignUpUser:user];
+        }
+    }];
     
-    if (_delegate && [_delegate respondsToSelector:@selector(logInViewController:didSignUpUser:)]) {
-        
-        [_delegate logInViewController:self didSignUpUser:user];
-    }
 }
 
 - (void)signUpViewController:(FSSignupViewController *)signUpController didTapBackButton:(id)sender {

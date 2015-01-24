@@ -27,9 +27,7 @@
     __block NSMutableString* teamName = [@"" mutableCopy];
     
     [team enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-       
-        if (![obj isKindOfClass:[User class]]) return;
-        
+               
         User* user = (User*)obj;
         
         [teamName appendString:user.username];
@@ -40,4 +38,15 @@
     return teamName;
 }
 
+
++ (FSGameTeamIndex) calculateWinners:(Game*)game {
+    
+    if ([game.scoreA intValue] > [game.scoreB intValue]) {
+        return FSGameTeamA;
+    }
+    else {
+        return FSGameTeamB;
+    }
+    return FSGameTeamNone;
+}
 @end

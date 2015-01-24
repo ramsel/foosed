@@ -13,6 +13,7 @@
 
 // Data
 #import "User.h"
+#import "Game.h"
 
 @interface AppDelegate () <FSLoginViewControllerDelegate>
 
@@ -49,6 +50,10 @@
     
     [Parse enableLocalDatastore];
     
+    // Register Parse data subclasses
+    [User registerSubclass];
+    [Game registerSubclass];
+    
     // Initialize Parse.
     [Parse setApplicationId:@"1PGjk8BrUPWvAA2odbPb31rbRX52TR8dSP3f5XPN"
                   clientKey:@"Z9qrrC0XxRWYKOhy3FAOHHrvqR6dB0AUKkRruxoC"];
@@ -56,8 +61,7 @@
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
-    // Register Parse data subclasses
-    [User registerSubclass];
+   
     
     // Automatic User
     [User enableAutomaticUser];
@@ -72,17 +76,23 @@
 }
 
 - (void)userDidLogIn:(PFUser*)user {
+
     [self proceedToMainInterface:user];
 }
 
 - (void)userHasLoggedIn {
+    
     [self proceedToMainInterface:[User currentUser]];
 }
 
 - (void)proceedToMainInterface:(PFUser *)user {
-    
+
     // Present the main interface
     [self.welcomeController performSegueWithIdentifier:@"welcomeToMain" sender:nil];
+    
+    
+    // Preload Users
+    [FSDatabaseManager queryForUsersWithCallback:^(NSArray *objects, NSError *error) { }];
 
 }
 
@@ -109,7 +119,7 @@
 - (void)logInViewController:(FSLoginViewController *)logInController didLogInUser:(PFUser *)user {
     
     [self.welcomeController.presentedViewController dismissViewControllerAnimated:YES completion:^{
-        [self userDidLogIn:user];
+        [self performSelector:@selector(userDidLogIn:) withObject:user afterDelay:0.2];
     }];
 }
 
@@ -118,8 +128,12 @@
 - (void)logInViewController:(FSLoginViewController *)logInController didSignUpUser:(PFUser *)user {
     
     [self.welcomeController.presentedViewController dismissViewControllerAnimated:YES completion:^{
-        [self userDidLogIn:user];
+        [self performSelector:@selector(userDidLogIn:) withObject:user afterDelay:0.2];
     }];
+    
+
+
+    
     
 }
 

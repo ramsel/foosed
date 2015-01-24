@@ -12,6 +12,8 @@
 
 @interface FSWelcomeViewController ()
 
+@property (nonatomic, assign) BOOL didCheckIfLoggedIn;
+
 
 
 @end
@@ -23,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
 
     // View Stuffs
@@ -36,31 +39,31 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    
     AppDelegate* appDel = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 
-    
     // If not logged in, present login view controller
     if ([self presentLoginViewController]
         && [appDel respondsToSelector:@selector(presentLoginViewControllerAnimated:withDismissButton:)]) {
         [(AppDelegate*)[[UIApplication sharedApplication] delegate] presentLoginViewControllerAnimated:NO withDismissButton:NO];
+        
+        self.didCheckIfLoggedIn = YES;
+        
         return;
     }
     
     else {
-        
         // Or else just start the app if everything checks out
-        if ([appDel respondsToSelector:@selector(userHasLoggedIn)]) {
+        if ([appDel respondsToSelector:@selector(userHasLoggedIn)] &&
+            !self.didCheckIfLoggedIn) {
             [appDel userHasLoggedIn];
         }
     }
     
-    
-    
+
     // Refresh current user with server side data -- checks if user is still valid and so on
     if ([User currentUser]) {
-    
         [[User currentUser] fetchInBackgroundWithTarget:self selector:@selector(refreshCurrentUserCallbackWithResult:error:)];
-        
     }
     
 }

@@ -15,9 +15,22 @@
 @dynamic teamB;
 @dynamic scoreA;
 @dynamic scoreB;
+@dynamic date;
+@dynamic winners;
+@dynamic isDeleted;
 
 + (NSString*)parseClassName {
     return @"Game";
+}
+
+- (instancetype)initWithZeroedScores {
+    
+    self = [super init];
+    if (self) {
+        self.scoreA = [NSNumber numberWithInt:0];
+        self.scoreB = [NSNumber numberWithInt:0];
+    }
+    return self;
 }
 
 #pragma mark - Keys
@@ -33,4 +46,14 @@
 + (NSString *)scoreBKey {
     return @"scoreB";
 }
++ (NSString *)dateKey {
+    return @"date";
+}
++ (NSString *)winnersKey {
+    return @"winners";
+}
++ (NSString *)isDeletedKey {
+    return @"isDeleted";
+}
+
 @end

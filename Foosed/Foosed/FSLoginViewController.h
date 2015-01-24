@@ -22,7 +22,7 @@
 - (IBAction)didTapLoginButton:(id)sender;
 
 /*! @name Delegate */
-@property (nonatomic, strong) id<FSLoginViewControllerDelegate> delegate;
+@property (nonatomic, weak) id<FSLoginViewControllerDelegate> delegate;
 
 @end
 

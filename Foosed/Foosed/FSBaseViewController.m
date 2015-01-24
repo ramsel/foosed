@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Ramsel. All rights reserved.
 //
 
-#define kNavBarBackButtonDim 22.0f
-
 #import "FSBaseViewController.h"
 
 @implementation FSBaseViewController
@@ -27,18 +25,13 @@
     [self.view sendSubviewToBack:self.transparentBGView];
     
     
-    // Back button
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    backButton.accessibilityLabel = @"Back Button";
-    backButton.frame = CGRectMake( 0.0f, 0.0f, kNavBarBackButtonDim, kNavBarBackButtonDim);
-    [backButton addTarget:self action:@selector(backButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [backButton setBackgroundImage:[UIImage imageNamed:kFSBackButtonWhiteIcon] forState:UIControlStateNormal];
-    [backButton setBackgroundImage:[UIImage imageNamed:kFSBackButtonWhiteIcon] forState:UIControlStateHighlighted];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-
-    
 }
 
+
+#pragma mark - Navigation
+- (void) backButtonAction:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 #pragma mark - ()
 - (void)hasError:(NSError *)error {

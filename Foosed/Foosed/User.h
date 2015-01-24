@@ -10,22 +10,21 @@
 
 @interface User : PFUser <PFSubclassing>
 
-
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSString *password;
 @property (nonatomic, strong) NSString *email;
-
-
+@property (nonatomic, strong) NSNumber* wins;
 
 
 #pragma mark - Keys
 + (NSString *)usernameKey;
 + (NSString *)passwordKey;
 + (NSString *)emailKey;
++ (NSString *)winsKey;
 
 
 
 #pragma mark - Logic
-+ (User*)currentUser;
+- (BOOL)isEqual:(PFObject*)object;
 
 @end

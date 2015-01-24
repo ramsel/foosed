@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842F3E221A731AD200989C51 /* FSFooterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 842F3E211A731AD200989C51 /* FSFooterButton.m */; };
+		843BA0701A739BC300C46FDC /* FSRankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 843BA06F1A739BC300C46FDC /* FSRankViewController.m */; };
+		843BA0731A73A23C00C46FDC /* FSRankTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 843BA0721A73A23C00C46FDC /* FSRankTableViewCell.m */; };
+		843BA0761A74030600C46FDC /* icon-swipe-delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 843BA0741A74030600C46FDC /* icon-swipe-delete.png */; };
+		843BA0771A74030600C46FDC /* icon-swipe-delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 843BA0751A74030600C46FDC /* icon-swipe-delete@2x.png */; };
 		84545B671A718F6B0083DBF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84545B661A718F6B0083DBF0 /* main.m */; };
 		84545B6A1A718F6B0083DBF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84545B691A718F6B0083DBF0 /* AppDelegate.m */; };
 		84545B701A718F6B0083DBF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84545B6E1A718F6B0083DBF0 /* Main.storyboard */; };
@@ -56,6 +61,11 @@
 		8496A2961A72BCA000E7A71E /* FSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496A2951A72BCA000E7A71E /* FSUtility.m */; };
 		8496A2991A72C1AA00E7A71E /* FSBaseInsetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496A2981A72C1AA00E7A71E /* FSBaseInsetTableViewCell.m */; };
 		8496A29C1A72C29C00E7A71E /* FSGameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496A29B1A72C29C00E7A71E /* FSGameTableViewCell.m */; };
+		84980C6A1A733A41004318BC /* FSAddGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84980C691A733A41004318BC /* FSAddGameViewController.m */; };
+		84980C6D1A733E80004318BC /* FSCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 84980C6C1A733E80004318BC /* FSCache.m */; };
+		84980C701A73728A004318BC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 84980C6F1A73728A004318BC /* MBProgressHUD.m */; };
+		84980C781A7383BE004318BC /* icon-navmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 84980C761A7383BE004318BC /* icon-navmenu.png */; };
+		84980C791A7383BE004318BC /* icon-navmenu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84980C771A7383BE004318BC /* icon-navmenu@2x.png */; };
 		84DAE2111A71AD6100B4DD02 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DAE2101A71AD6100B4DD02 /* User.m */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +80,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		842F3E201A731AD200989C51 /* FSFooterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSFooterButton.h; sourceTree = "<group>"; };
+		842F3E211A731AD200989C51 /* FSFooterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSFooterButton.m; sourceTree = "<group>"; };
+		843BA06E1A739BC300C46FDC /* FSRankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSRankViewController.h; sourceTree = "<group>"; };
+		843BA06F1A739BC300C46FDC /* FSRankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSRankViewController.m; sourceTree = "<group>"; };
+		843BA0711A73A23C00C46FDC /* FSRankTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSRankTableViewCell.h; sourceTree = "<group>"; };
+		843BA0721A73A23C00C46FDC /* FSRankTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSRankTableViewCell.m; sourceTree = "<group>"; };
+		843BA0741A74030600C46FDC /* icon-swipe-delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-swipe-delete.png"; sourceTree = "<group>"; };
+		843BA0751A74030600C46FDC /* icon-swipe-delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-swipe-delete@2x.png"; sourceTree = "<group>"; };
 		84545B611A718F6B0083DBF0 /* Foosed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foosed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84545B651A718F6B0083DBF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84545B661A718F6B0083DBF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -143,6 +161,14 @@
 		8496A2981A72C1AA00E7A71E /* FSBaseInsetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBaseInsetTableViewCell.m; sourceTree = "<group>"; };
 		8496A29A1A72C29C00E7A71E /* FSGameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSGameTableViewCell.h; sourceTree = "<group>"; };
 		8496A29B1A72C29C00E7A71E /* FSGameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSGameTableViewCell.m; sourceTree = "<group>"; };
+		84980C681A733A41004318BC /* FSAddGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSAddGameViewController.h; sourceTree = "<group>"; };
+		84980C691A733A41004318BC /* FSAddGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSAddGameViewController.m; sourceTree = "<group>"; };
+		84980C6B1A733E80004318BC /* FSCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCache.h; sourceTree = "<group>"; };
+		84980C6C1A733E80004318BC /* FSCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCache.m; sourceTree = "<group>"; };
+		84980C6E1A73728A004318BC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		84980C6F1A73728A004318BC /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		84980C761A7383BE004318BC /* icon-navmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-navmenu.png"; sourceTree = "<group>"; };
+		84980C771A7383BE004318BC /* icon-navmenu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-navmenu@2x.png"; sourceTree = "<group>"; };
 		84DAE20F1A71AD6100B4DD02 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		84DAE2101A71AD6100B4DD02 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +206,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		843BA06D1A739B9D00C46FDC /* Rank */ = {
+			isa = PBXGroup;
+			children = (
+				843BA06E1A739BC300C46FDC /* FSRankViewController.h */,
+				843BA06F1A739BC300C46FDC /* FSRankViewController.m */,
+				843BA0711A73A23C00C46FDC /* FSRankTableViewCell.h */,
+				843BA0721A73A23C00C46FDC /* FSRankTableViewCell.m */,
+			);
+			name = Rank;
+			sourceTree = "<group>";
+		};
 		84545B581A718F6B0083DBF0 = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +299,8 @@
 		84545B8B1A7190F10083DBF0 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				843BA06D1A739B9D00C46FDC /* Rank */,
+				84980C671A733A1E004318BC /* Add Game */,
 				8496A28C1A71F02B00E7A71E /* Game */,
 				845ED6811A71D3D900D29A20 /* FSBaseViewController.m */,
 				845ED6861A71D3D900D29A20 /* FSBaseViewController.h */,
@@ -276,6 +315,8 @@
 			isa = PBXGroup;
 			children = (
 				8496A28D1A71F03A00E7A71E /* Cells */,
+				842F3E201A731AD200989C51 /* FSFooterButton.h */,
+				842F3E211A731AD200989C51 /* FSFooterButton.m */,
 				845ED68F1A71DC3600D29A20 /* FSMainButton.h */,
 				845ED6901A71DC3600D29A20 /* FSMainButton.m */,
 				845ED68C1A71D4A300D29A20 /* FSTextField.m */,
@@ -322,6 +363,7 @@
 		84545BC31A71970E0083DBF0 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				84980C711A73728E004318BC /* MBProgressHUD */,
 				84545BC41A7197200083DBF0 /* DAKeyboardControl */,
 			);
 			name = Externals;
@@ -339,6 +381,10 @@
 		84545BCB1A719B810083DBF0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				843BA0741A74030600C46FDC /* icon-swipe-delete.png */,
+				843BA0751A74030600C46FDC /* icon-swipe-delete@2x.png */,
+				84980C761A7383BE004318BC /* icon-navmenu.png */,
+				84980C771A7383BE004318BC /* icon-navmenu@2x.png */,
 				8496A2821A71EC7100E7A71E /* icon-navleft-white@2x.png */,
 				8496A2831A71EC7100E7A71E /* icon-navleft-white.png */,
 				84545BCC1A719B8D0083DBF0 /* bg-text.png */,
@@ -371,6 +417,8 @@
 				846FFD1F1A71A22600FFF099 /* FSDatabaseManager.m */,
 				8496A2941A72BCA000E7A71E /* FSUtility.h */,
 				8496A2951A72BCA000E7A71E /* FSUtility.m */,
+				84980C6B1A733E80004318BC /* FSCache.h */,
+				84980C6C1A733E80004318BC /* FSCache.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -395,6 +443,24 @@
 				8496A28F1A71F09400E7A71E /* FSPromptTableViewCell.m */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		84980C671A733A1E004318BC /* Add Game */ = {
+			isa = PBXGroup;
+			children = (
+				84980C681A733A41004318BC /* FSAddGameViewController.h */,
+				84980C691A733A41004318BC /* FSAddGameViewController.m */,
+			);
+			name = "Add Game";
+			sourceTree = "<group>";
+		};
+		84980C711A73728E004318BC /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				84980C6E1A73728A004318BC /* MBProgressHUD.h */,
+				84980C6F1A73728A004318BC /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,15 +546,19 @@
 				84545B701A718F6B0083DBF0 /* Main.storyboard in Resources */,
 				84545BD81A719B8D0083DBF0 /* btn-action-bg.png in Resources */,
 				84545BD41A719B8D0083DBF0 /* bg-text.png in Resources */,
+				84980C781A7383BE004318BC /* icon-navmenu.png in Resources */,
 				84545BD61A719B8D0083DBF0 /* bg.png in Resources */,
 				84545BD71A719B8D0083DBF0 /* bg@2x.png in Resources */,
+				843BA0761A74030600C46FDC /* icon-swipe-delete.png in Resources */,
 				84545B751A718F6B0083DBF0 /* LaunchScreen.xib in Resources */,
 				8496A2841A71EC7100E7A71E /* icon-navleft-white@2x.png in Resources */,
 				8496A2851A71EC7100E7A71E /* icon-navleft-white.png in Resources */,
+				843BA0771A74030600C46FDC /* icon-swipe-delete@2x.png in Resources */,
 				84545BDB1A719B8D0083DBF0 /* btn-menu-bg@2x.png in Resources */,
 				84545B721A718F6B0083DBF0 /* Images.xcassets in Resources */,
 				84545BD51A719B8D0083DBF0 /* bg-text@2x.png in Resources */,
 				84545BDA1A719B8D0083DBF0 /* btn-menu-bg.png in Resources */,
+				84980C791A7383BE004318BC /* icon-navmenu@2x.png in Resources */,
 				84545BD91A719B8D0083DBF0 /* btn-action-bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,6 +578,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8496A2961A72BCA000E7A71E /* FSUtility.m in Sources */,
+				843BA0731A73A23C00C46FDC /* FSRankTableViewCell.m in Sources */,
+				84980C6D1A733E80004318BC /* FSCache.m in Sources */,
 				84545BC71A7197310083DBF0 /* DAKeyboardControl.m in Sources */,
 				845ED6881A71D3D900D29A20 /* FSWelcomeViewController.m in Sources */,
 				8496A28B1A71ECE700E7A71E /* FSBaseTableViewController.m in Sources */,
@@ -515,18 +587,22 @@
 				845ED68B1A71D3D900D29A20 /* FSLoginViewController.m in Sources */,
 				845ED6931A71DC3600D29A20 /* FSMainButton.m in Sources */,
 				84545B671A718F6B0083DBF0 /* main.m in Sources */,
+				843BA0701A739BC300C46FDC /* FSRankViewController.m in Sources */,
 				846FFD201A71A22600FFF099 /* FSDatabaseManager.m in Sources */,
 				84DAE2111A71AD6100B4DD02 /* User.m in Sources */,
 				8496A2931A71F34500E7A71E /* Game.m in Sources */,
 				845ED68E1A71D4A300D29A20 /* FSTextField.m in Sources */,
+				84980C6A1A733A41004318BC /* FSAddGameViewController.m in Sources */,
 				8496A2881A71ECCD00E7A71E /* FSGamesViewController.m in Sources */,
 				845ED6891A71D3D900D29A20 /* FSBaseViewController.m in Sources */,
 				8496A2901A71F09400E7A71E /* FSPromptTableViewCell.m in Sources */,
+				84980C701A73728A004318BC /* MBProgressHUD.m in Sources */,
 				84545BDF1A719BC10083DBF0 /* FSConstants.m in Sources */,
 				8496A2991A72C1AA00E7A71E /* FSBaseInsetTableViewCell.m in Sources */,
 				845ED68A1A71D3D900D29A20 /* FSSignupViewController.m in Sources */,
 				84545BE31A719C8F0083DBF0 /* UIColor+Extensions.m in Sources */,
 				8496A29C1A72C29C00E7A71E /* FSGameTableViewCell.m in Sources */,
+				842F3E221A731AD200989C51 /* FSFooterButton.m in Sources */,
 				84545BE61A719C9C0083DBF0 /* PFObject+Copy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,7 +9,7 @@
 #import "FSMainButton.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define mainButtonWidth 4.0f
+#define mainButtonBorderWidth 4.0f
 
 @interface FSMainButton ()
 
@@ -28,10 +28,10 @@
     
     // Add sublayer
     self.layer.cornerRadius = 6.0f;
-    self.layer.borderWidth = mainButtonWidth;
+    self.layer.borderWidth = mainButtonBorderWidth;
     self.layer.borderColor = [[UIColor colorWithWhite:1.0f alpha:0.3f] CGColor];
     CALayer *sub = [CALayer new];
-    sub.frame = CGRectInset(self.bounds, mainButtonWidth, mainButtonWidth);
+    sub.frame = CGRectInset(self.bounds, mainButtonBorderWidth, mainButtonBorderWidth);
     sub.backgroundColor = self.defaultColor.CGColor;
     self.sublayer = sub;
     [self.layer addSublayer:self.sublayer];

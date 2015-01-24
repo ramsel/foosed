@@ -13,6 +13,7 @@
 
 #pragma mark - Game
 + (NSString*)teamNamesStringForGame:(Game*)game team:(FSGameTeamIndex)teamIndex;
++ (FSGameTeamIndex) calculateWinners:(Game*)game;
 
 
 @end

@@ -45,9 +45,7 @@
 - (void) setupViews {
     
     self.contentView.backgroundColor = [UIColor clearColor];
-    
-    // floatingBGView
-    self.floatingBGView.layer.cornerRadius = 6.0f;
+
     
     // scoreLabel
     self.scoreALabel.font = [UIFont fontWithName:kMasterBoldFontName size:self.scoreALabel.font.pointSize];
@@ -63,20 +61,43 @@
 }
 
 
+#pragma mark - Editing
+- (void)willTransitionToState:(UITableViewCellStateMask)state
+{
+    if ((state & UITableViewCellStateShowingDeleteConfirmationMask) == UITableViewCellStateShowingDeleteConfirmationMask)
+    {
+        [self performSelector:@selector(setupDeleteButton) withObject:nil afterDelay:0.1];
+    }
+}
 
+- (void)setupDeleteButton
+{
+    [self recurseToDeleteButtonInViews:[self subviews]];
+}
 
+- (void)recurseToDeleteButtonInViews:(NSArray *)subviews
+{
+    for (UIView *subview in subviews)
+    {
+        if ([NSStringFromClass([subview class]) isEqualToString:@"UITableViewCellDeleteConfirmationButton"]){
+            UIImageView *deleteBtn = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 44, 44)];
+            [deleteBtn setImage:[UIImage imageNamed:kFSDeleteButtonTrashIcon]];
+            [[subview.subviews objectAtIndex:0] addSubview:deleteBtn];
+            return;
+        }
+        if ([[subview subviews] count] > 0){
+            [self recurseToDeleteButtonInViews:[subview subviews]];
+        }
+    }
+    return;
+}
+
+#pragma mark - Static Layout
 + (CGFloat) neededHeightForCell {
     return kFSGameCellHeight;
     
 }
 
 
-#pragma mark - Delegate method
-//- (void)didTapUserButtonAction:(id)sender {
-//
-//    if (self.partnerCellDelegate && [self.partnerCellDelegate respondsToSelector:@selector(didTapUserImageForCell:)]) {
-//        [self.partnerCellDelegate didTapUserImageForCell:self];
-//    }
-//}
 
 @end

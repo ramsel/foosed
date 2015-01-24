@@ -26,7 +26,7 @@
 - (IBAction)didTapBackButton:(id)sender;
 
 /*! @name Delegate */
-@property (nonatomic, strong) id<FSSignupViewControllerDelegate> delegate;
+@property (nonatomic, weak) id<FSSignupViewControllerDelegate> delegate;
 
 @end
 

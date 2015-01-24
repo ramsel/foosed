@@ -10,9 +10,9 @@
 
 @protocol FSBaseTableViewControllerDelegate;
 
-@interface FSBaseTableViewController : FSBaseViewController {
-    BOOL reloading;
-}
+@interface FSBaseTableViewController : FSBaseViewController
+
+@property (nonatomic, assign) BOOL reloading;
 
 @property (nonatomic, strong) NSDate *lastRefresh;
 

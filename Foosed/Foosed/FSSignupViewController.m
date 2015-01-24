@@ -80,15 +80,10 @@
     }
 }
 
-
-
 - (IBAction)didTapBackButton:(id)sender {
-    
-    if (_delegate && [_delegate respondsToSelector:@selector(signUpViewController:didTapBackButton:)]) {
-        
-        [_delegate signUpViewController:self didTapBackButton:sender];
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 
 

@@ -14,11 +14,7 @@
 @dynamic username;
 @dynamic password;
 @dynamic email;
-
-+ (NSString*)parseClassName {
-    return @"User";
-}
-
+@dynamic wins;
 
 #pragma mark - Keys
 + (NSString *)usernameKey {
@@ -33,13 +29,19 @@
     return @"email";
 }
 
++ (NSString *)winsKey {
+    return @"wins";
+}
+
 
 
 #pragma mark - Logic
-+ (User*)currentUser {
-    return (User*)[PFUser currentUser];
-}
 
+- (BOOL)isEqual:(PFObject*)object {
+    if ([object.objectId isEqualToString:self.objectId]) return YES;
+    
+    return NO;
+}
 
 
 @end

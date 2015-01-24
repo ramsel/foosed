@@ -11,18 +11,35 @@
 #import "FSUtility.h"
 #import "User.h"
 #import "Game.h"
+#import "MBProgressHUD.h"
+
+
+#define kNavBarMenuButtonDim 22.0f
+
 
 @interface FSGamesViewController () <UITableViewDataSource, UITableViewDelegate>
-
-@property (nonatomic, assign) BOOL reloading;
-
 
 @end
 
 @implementation FSGamesViewController
 
+- (void)awakeFromNib {
+    
+    [super awakeFromNib];
+    
+    
+    
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:WSNotifDidAddGame object:nil];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.hidesBackButton = YES;
+
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -30,9 +47,17 @@
     // clear bg
     [self.tableView setBackgroundView:nil];
     [self.tableView setBackgroundColor:[UIColor clearColor]];
-
+    
+    
     
     [self loadObjects];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+    [self registerForNotifications];
 }
 
 
@@ -40,41 +65,30 @@
 #pragma mark - Data
 - (void) loadObjects {
     
-    User* player0 = [User new];
-    player0.username = @"Amos";
+    // HUD
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading Games";
     
-    User* player1 = [User new];
-    player1.username = @"Diego";
+    // If more than 5 seconds pass since we post a comment, stop waiting for the server to respond
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(handleNetworkTimeout:) userInfo:nil repeats:NO];
     
-    Game* game0 = [Game new];
-    game0.teamA = @[player0];
-    game0.teamB = @[player1];
-    game0.scoreA = [NSNumber numberWithInt:0];
-    game0.scoreB = [NSNumber numberWithInt:3];
     
-    Game* game1 = [Game new];
-    game1.teamA = @[player0];
-    game1.teamB = @[player1];
-    game1.scoreA = [NSNumber numberWithInt:2];
-    game1.scoreB = [NSNumber numberWithInt:3];
-    
-    self.objects = @[game0,game1];
-
-    [self objectsDidLoad];
-
-    
-//    // Get the course object
-//    [FSDatabaseManager queryForGamesWithCallback:^(NSArray *objects, NSError *error) {
-//        if (error) {
-//            [self hasError:error];
-//            return;
-//        }
-//        
-//        self.objects = objects;
-//        
-//        [self objectsDidLoad];
-//        
-//    }];
+    // Get all games
+    [FSDatabaseManager queryForGamesWithCallback:^(NSArray *objects, NSError *error) {
+        
+        [hud hide:YES];
+        [timer invalidate];
+        
+        if (error) {
+            [self hasError:error];
+            return;
+        }
+        
+        self.objects = objects;
+        
+        [self objectsDidLoad];
+        
+    }];
 }
 
 
@@ -116,6 +130,8 @@
     static NSString *cellIdentifier = @"gameCell";
     
     FSGameTableViewCell *cell = (FSGameTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    cell.tag = indexPath.row;
+    
     
     Game* game = (Game*)self.objects[indexPath.row];
     
@@ -132,11 +148,7 @@
     cell.teamBLabel.text = teamBNames;
 
     
-    
 
-//    cell.textLabel.text = [NSString stringWithFormat:@"%@", teamBNames];
-//    cell.detailTextLabel.text =[NSString stringWithFormat:@"Team A: %@",teamANames];
-    cell.tag = indexPath.row;
     
     return cell;
 }
@@ -157,61 +169,65 @@
     [cell setBackgroundColor:[UIColor clearColor]];
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView
+           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    
-//    static NSString *CellIdentifier = @"completedSectionHeaderCell";
-//    UITableViewCell *headerView = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    if (headerView == nil){
-//        [NSException raise:@"headerView == nil.." format:@"No cells with matching CellIdentifier loaded from your storyboard"];
-//    }
-//    
-//    switch (section) {
-//        case JTWorkerTypeApplicator:
-//            headerView.textLabel.text = [JTDatabaseManager workerString:JTWorkerTypeApplicator];
-//            break;
-//            
-//        case JTWorkerTypeFieldRep:
-//            headerView.textLabel.text = [JTDatabaseManager workerString:JTWorkerTypeFieldRep];
-//            break;
-//            
-//        case JTWorkerTypeOperator:
-//            headerView.textLabel.text = [JTDatabaseManager workerString:JTWorkerTypeOperator];
-//            break;
-//            
-//        default:
-//            break;
-//    }
-//    
-//    
-//    return headerView;
-//
-//}
-//
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    return heightForSectionHeader;
-//}
+    return UITableViewCellEditingStyleDelete;
+}
 
-
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+     if (indexPath.row < self.objects.count) {
+         // DB - Delete
+         Game* game = (Game*)self.objects[indexPath.row];
+         game.isDeleted = YES;
+         [FSDatabaseManager saveObject:game callback:^(BOOL succeeded, NSError *error) { }];
+         
+         
+         // Remove from self.objects
+         NSMutableArray* mutableObjects = [self.objects mutableCopy];
+        [mutableObjects removeObjectAtIndex:indexPath.row];
+         self.objects = mutableObjects;
+         
+         [self.tableView reloadData];
+    }
+}
 
 
 #pragma mark - Navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    // Get the new view controller using [segue destinationViewController].
-//    UITableViewCell* cell = (UITableViewCell*)sender;
-//    
-//    // Subdetails
-//    if ([[segue identifier] isEqualToString:@"toCertificate"])
-//    {
-//        JTCertificateViewController *certVC = [segue destinationViewController];
-//        
-//        UserCourse* userCourse = (UserCourse*)self.objects[cell.tag];
-//        certVC.userCourse = userCourse;
-//    }
-//    //}
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    UITableViewCell* cell = (UITableViewCell*)sender;
+    
+    // Subdetails
+    if ([[segue identifier] isEqualToString:@"gamesToAdd"])
+    {
+        
+    }
+}
+
+
+#pragma mark - NSNotification
+- (void) registerForNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didAddGame:) name:WSNotifDidAddGame object:nil];
+}
+
+- (void)didAddGame:(NSNotification*)notification {
+    
+    NSDictionary *userInfo = notification.userInfo;
+    Game *game = (Game*)[userInfo objectForKey:WSNotifDidAddGameObjectKey];
+    if (![game isKindOfClass:[Game class]]) return;
+    
+    // Add to objects
+    NSMutableArray* mutableObjects = [self.objects mutableCopy];
+    [mutableObjects addObject:game];
+    self.objects = mutableObjects;
+    
+    [self.tableView reloadData];
+}
 
 #pragma mark - FSBaseTableViewController Delegate
 -(void) didPullRefresh {
@@ -221,5 +237,8 @@
 
 
 
-
+#pragma mark - IBActions
+- (IBAction)didTapFooterButton:(id)sender {
+    [self performSegueWithIdentifier:@"gamesToAdd" sender:self];
+}
 @end

@@ -12,11 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (nonatomic, strong) NSDate *lastRefresh;
+@property (weak, nonatomic) IBOutlet UIButton *footerButton;
 
-@property (nonatomic, strong) NSArray* objects;
 
-@property (nonatomic, strong) UIRefreshControl* refreshControl;
-
+- (IBAction)didTapFooterButton:(id)sender;
 
 @end

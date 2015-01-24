@@ -12,7 +12,8 @@
 #pragma mark - Images
 #define kFSBackgroundImage @"bg.png"
 #define kFSBackButtonWhiteIcon @"icon-navleft-white.png"
-
+#define kFSMenuButtonWhiteIcon @"icon-navmenu.png"
+#define kFSDeleteButtonTrashIcon @"icon-swipe-delete.png"
 
 #pragma mark - UI
 #pragma mark Fonts
@@ -20,7 +21,19 @@
 #define kMasterBoldFontName @"AvenirNext-Bold"
 #define kMasterDemiBoldFontName @"AvenirNext-DemiBold"
 
+
+#pragma mark Sizes
+#define kNavBarBackButtonDim 22.0f
+
+
 #pragma mark Font-Sizes
 #define kFSMainButtonFontSize 18.0f
 #define kFSSubLabelFontSize 16.0f
 #define kFSTextVoewFontSize 14.0f
+
+
+#pragma mark - Notifications
+extern NSString *const WSNotifDidAddGame;
+
+#pragma mark NSNotificaiton - UserInfo Keys
+extern NSString *const WSNotifDidAddGameObjectKey;
