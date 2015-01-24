@@ -7,7 +7,7 @@
 //
 
 #import "FSDatabaseManager.h"
-#import "User.h"
+
 
 
 
@@ -32,22 +32,20 @@
     return self;
 }
 
-//#pragma mark - Reads
-//
-//+ (void)queryForCourses:(NSString*)workerType withCallback:(void(^)(NSArray* courses, NSError *error))callback {
-//
-//    PFQuery* coursesQuery = [PFQuery queryWithClassName:[Course parseClassName]];
-//    [coursesQuery whereKey:[Course workerTypeKey] equalTo:workerType];
-//    
-//    [coursesQuery orderByAscending:[Course tagKey]];
-//    
-//    [coursesQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        callback(objects, error);
-//    }];
-//}
-//
-//
-//#pragma mark - Creates
+#pragma mark - Reads
++ (void)queryForGamesWithCallback:(void(^)(NSArray* objects, NSError *error))callback {
+
+    PFQuery* query = [PFQuery queryWithClassName:[Game parseClassName]];
+    
+    [query orderByDescending:@"createdAt"];
+    
+    [FSDatabaseManager query:query withCallback:^(NSArray *objects, NSError *error) {
+        callback(objects,error);
+    }];
+}
+
+
+#pragma mark - Creates
 //+ (void)createUserCourse:(Course*)course user:(User*)user withCallback:(void(^)(UserCourse *course, NSError *error))callback {
 //    
 //    // Create the userCourse object
@@ -118,7 +116,7 @@
 //    }];
 //}
 //
-//#pragma mark - Updates
+#pragma mark - Updates
 //+ (void)updateUserProfile:(User*)user firstName:(NSString*)firstName lastName:(NSString*)lastName license:(NSString*)license position:(NSString*)position withCallback:(void(^)(BOOL succeeded, NSError *error))callback {
 //    
 //    user.firstName = firstName;
@@ -190,6 +188,15 @@
 //    return hasCourse;
 //    
 //}
+
+
+#pragma mark - General
++ (void)query:(PFQuery*)query withCallback:(void(^)(NSArray* objects, NSError *error))callback {
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        callback(objects, error);
+    }];
+}
+
 
 
 

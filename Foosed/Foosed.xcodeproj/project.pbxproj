@@ -49,8 +49,13 @@
 		846FFD201A71A22600FFF099 /* FSDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 846FFD1F1A71A22600FFF099 /* FSDatabaseManager.m */; };
 		8496A2841A71EC7100E7A71E /* icon-navleft-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8496A2821A71EC7100E7A71E /* icon-navleft-white@2x.png */; };
 		8496A2851A71EC7100E7A71E /* icon-navleft-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 8496A2831A71EC7100E7A71E /* icon-navleft-white.png */; };
-		8496A2881A71ECCD00E7A71E /* FSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496A2871A71ECCD00E7A71E /* FSMainViewController.m */; };
+		8496A2881A71ECCD00E7A71E /* FSGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496A2871A71ECCD00E7A71E /* FSGamesViewController.m */; };
 		8496A28B1A71ECE700E7A71E /* FSBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496A28A1A71ECE700E7A71E /* FSBaseTableViewController.m */; };
+		8496A2901A71F09400E7A71E /* FSPromptTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496A28F1A71F09400E7A71E /* FSPromptTableViewCell.m */; };
+		8496A2931A71F34500E7A71E /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496A2921A71F34500E7A71E /* Game.m */; };
+		8496A2961A72BCA000E7A71E /* FSUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496A2951A72BCA000E7A71E /* FSUtility.m */; };
+		8496A2991A72C1AA00E7A71E /* FSBaseInsetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496A2981A72C1AA00E7A71E /* FSBaseInsetTableViewCell.m */; };
+		8496A29C1A72C29C00E7A71E /* FSGameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8496A29B1A72C29C00E7A71E /* FSGameTableViewCell.m */; };
 		84DAE2111A71AD6100B4DD02 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DAE2101A71AD6100B4DD02 /* User.m */; };
 /* End PBXBuildFile section */
 
@@ -124,10 +129,20 @@
 		846FFD1F1A71A22600FFF099 /* FSDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSDatabaseManager.m; sourceTree = "<group>"; };
 		8496A2821A71EC7100E7A71E /* icon-navleft-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-navleft-white@2x.png"; sourceTree = "<group>"; };
 		8496A2831A71EC7100E7A71E /* icon-navleft-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-navleft-white.png"; sourceTree = "<group>"; };
-		8496A2861A71ECCD00E7A71E /* FSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSMainViewController.h; sourceTree = "<group>"; };
-		8496A2871A71ECCD00E7A71E /* FSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSMainViewController.m; sourceTree = "<group>"; };
+		8496A2861A71ECCD00E7A71E /* FSGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSGamesViewController.h; sourceTree = "<group>"; };
+		8496A2871A71ECCD00E7A71E /* FSGamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSGamesViewController.m; sourceTree = "<group>"; };
 		8496A2891A71ECE700E7A71E /* FSBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBaseTableViewController.h; sourceTree = "<group>"; };
 		8496A28A1A71ECE700E7A71E /* FSBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBaseTableViewController.m; sourceTree = "<group>"; };
+		8496A28E1A71F09400E7A71E /* FSPromptTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPromptTableViewCell.h; sourceTree = "<group>"; };
+		8496A28F1A71F09400E7A71E /* FSPromptTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPromptTableViewCell.m; sourceTree = "<group>"; };
+		8496A2911A71F34500E7A71E /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		8496A2921A71F34500E7A71E /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		8496A2941A72BCA000E7A71E /* FSUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSUtility.h; sourceTree = "<group>"; };
+		8496A2951A72BCA000E7A71E /* FSUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSUtility.m; sourceTree = "<group>"; };
+		8496A2971A72C1AA00E7A71E /* FSBaseInsetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBaseInsetTableViewCell.h; sourceTree = "<group>"; };
+		8496A2981A72C1AA00E7A71E /* FSBaseInsetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBaseInsetTableViewCell.m; sourceTree = "<group>"; };
+		8496A29A1A72C29C00E7A71E /* FSGameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSGameTableViewCell.h; sourceTree = "<group>"; };
+		8496A29B1A72C29C00E7A71E /* FSGameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSGameTableViewCell.m; sourceTree = "<group>"; };
 		84DAE20F1A71AD6100B4DD02 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		84DAE2101A71AD6100B4DD02 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,6 +253,8 @@
 			children = (
 				84DAE20F1A71AD6100B4DD02 /* User.h */,
 				84DAE2101A71AD6100B4DD02 /* User.m */,
+				8496A2911A71F34500E7A71E /* Game.h */,
+				8496A2921A71F34500E7A71E /* Game.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -245,13 +262,12 @@
 		84545B8B1A7190F10083DBF0 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8496A28C1A71F02B00E7A71E /* Game */,
 				845ED6811A71D3D900D29A20 /* FSBaseViewController.m */,
 				845ED6861A71D3D900D29A20 /* FSBaseViewController.h */,
 				8496A2891A71ECE700E7A71E /* FSBaseTableViewController.h */,
 				8496A28A1A71ECE700E7A71E /* FSBaseTableViewController.m */,
 				84545BAD1A7193E10083DBF0 /* Login */,
-				8496A2861A71ECCD00E7A71E /* FSMainViewController.h */,
-				8496A2871A71ECCD00E7A71E /* FSMainViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -259,6 +275,7 @@
 		84545B8C1A7190FA0083DBF0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8496A28D1A71F03A00E7A71E /* Cells */,
 				845ED68F1A71DC3600D29A20 /* FSMainButton.h */,
 				845ED6901A71DC3600D29A20 /* FSMainButton.m */,
 				845ED68C1A71D4A300D29A20 /* FSTextField.m */,
@@ -352,8 +369,32 @@
 			children = (
 				846FFD1E1A71A22600FFF099 /* FSDatabaseManager.h */,
 				846FFD1F1A71A22600FFF099 /* FSDatabaseManager.m */,
+				8496A2941A72BCA000E7A71E /* FSUtility.h */,
+				8496A2951A72BCA000E7A71E /* FSUtility.m */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		8496A28C1A71F02B00E7A71E /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				8496A29A1A72C29C00E7A71E /* FSGameTableViewCell.h */,
+				8496A29B1A72C29C00E7A71E /* FSGameTableViewCell.m */,
+				8496A2861A71ECCD00E7A71E /* FSGamesViewController.h */,
+				8496A2871A71ECCD00E7A71E /* FSGamesViewController.m */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		8496A28D1A71F03A00E7A71E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8496A2971A72C1AA00E7A71E /* FSBaseInsetTableViewCell.h */,
+				8496A2981A72C1AA00E7A71E /* FSBaseInsetTableViewCell.m */,
+				8496A28E1A71F09400E7A71E /* FSPromptTableViewCell.h */,
+				8496A28F1A71F09400E7A71E /* FSPromptTableViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -466,6 +507,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8496A2961A72BCA000E7A71E /* FSUtility.m in Sources */,
 				84545BC71A7197310083DBF0 /* DAKeyboardControl.m in Sources */,
 				845ED6881A71D3D900D29A20 /* FSWelcomeViewController.m in Sources */,
 				8496A28B1A71ECE700E7A71E /* FSBaseTableViewController.m in Sources */,
@@ -475,12 +517,16 @@
 				84545B671A718F6B0083DBF0 /* main.m in Sources */,
 				846FFD201A71A22600FFF099 /* FSDatabaseManager.m in Sources */,
 				84DAE2111A71AD6100B4DD02 /* User.m in Sources */,
+				8496A2931A71F34500E7A71E /* Game.m in Sources */,
 				845ED68E1A71D4A300D29A20 /* FSTextField.m in Sources */,
-				8496A2881A71ECCD00E7A71E /* FSMainViewController.m in Sources */,
+				8496A2881A71ECCD00E7A71E /* FSGamesViewController.m in Sources */,
 				845ED6891A71D3D900D29A20 /* FSBaseViewController.m in Sources */,
+				8496A2901A71F09400E7A71E /* FSPromptTableViewCell.m in Sources */,
 				84545BDF1A719BC10083DBF0 /* FSConstants.m in Sources */,
+				8496A2991A72C1AA00E7A71E /* FSBaseInsetTableViewCell.m in Sources */,
 				845ED68A1A71D3D900D29A20 /* FSSignupViewController.m in Sources */,
 				84545BE31A719C8F0083DBF0 /* UIColor+Extensions.m in Sources */,
+				8496A29C1A72C29C00E7A71E /* FSGameTableViewCell.m in Sources */,
 				84545BE61A719C9C0083DBF0 /* PFObject+Copy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

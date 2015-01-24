@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
+#import "Game.h"
 
 @interface FSDatabaseManager : NSObject
 
 
 #pragma mark - Reads
-//+ (void)queryForCourses:(NSString*)workerType withCallback:(void(^)(NSArray* courses, NSError *error))callback;
++ (void)queryForGamesWithCallback:(void(^)(NSArray* objects, NSError *error))callback;
+
 
 
 #pragma mark - Creates

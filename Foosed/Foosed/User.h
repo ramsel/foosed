@@ -11,9 +11,9 @@
 @interface User : PFUser <PFSubclassing>
 
 
-@property (nonatomic, retain) NSString *username;
-@property (nonatomic, retain) NSString *password;
-@property (nonatomic, retain) NSString *email;
+@property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *password;
+@property (nonatomic, strong) NSString *email;
 
 
 

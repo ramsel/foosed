@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Qg0-iC-v4L">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -115,7 +116,8 @@
         <scene sceneID="3ef-EL-RCc">
             <objects>
                 <navigationController id="Qg0-iC-v4L" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dji-uB-9DZ">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="dji-uB-9DZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -225,21 +227,144 @@
         <!--Foosed-->
         <scene sceneID="jme-W9-nlL">
             <objects>
-                <viewController id="FXF-Oj-chY" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ut1-G7-0rc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="FXF-Oj-chY" customClass="FSGamesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k1P-p2-c5m"/>
                         <viewControllerLayoutGuide type="bottom" id="3HG-sg-c7H"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cJS-uH-Xu5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qf2-7S-8wY">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gameCell" rowHeight="100" id="Pey-Tx-cvD" customClass="FSGameTableViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pey-Tx-cvD" id="qNs-2U-ewS">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jOw-HT-yjy">
+                                                    <rect key="frame" x="6" y="12" width="580" height="96"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" horizontalCompressionResistancePriority="10" verticalCompressionResistancePriority="10" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P1D-J5-8Fy">
+                                                            <rect key="frame" x="0.0" y="0.0" width="290" height="96"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8p-K5-Zss">
+                                                                    <rect key="frame" x="260" y="4" width="20" height="43"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjx-hJ-5Nu">
+                                                                    <rect key="frame" x="239" y="67" width="41" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="0.93333333330000001" green="0.91764705879999997" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="cjx-hJ-5Nu" secondAttribute="bottom" constant="8" id="Ccr-e2-xUI"/>
+                                                                <constraint firstAttribute="trailing" secondItem="N8p-K5-Zss" secondAttribute="trailing" constant="10" id="CyH-Cf-1AX"/>
+                                                                <constraint firstItem="N8p-K5-Zss" firstAttribute="top" secondItem="P1D-J5-8Fy" secondAttribute="top" constant="4" id="KRo-Ya-MUV"/>
+                                                                <constraint firstAttribute="trailing" secondItem="cjx-hJ-5Nu" secondAttribute="trailing" constant="10" id="XYX-1e-yx3"/>
+                                                                <constraint firstItem="cjx-hJ-5Nu" firstAttribute="top" secondItem="N8p-K5-Zss" secondAttribute="bottom" constant="20" id="pkm-vh-Csm"/>
+                                                            </constraints>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="pkm-vh-Csm"/>
+                                                                </mask>
+                                                            </variation>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="2" horizontalCompressionResistancePriority="10" verticalCompressionResistancePriority="10" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WIo-BI-rax">
+                                                            <rect key="frame" x="290" y="0.0" width="290" height="96"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dow-3u-emx">
+                                                                    <rect key="frame" x="10" y="4" width="21" height="45"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSp-va-3Ml">
+                                                                    <rect key="frame" x="10" y="67" width="41" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="0.73725490199999999" green="0.57647058819999997" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstItem="Dow-3u-emx" firstAttribute="leading" secondItem="WIo-BI-rax" secondAttribute="leading" constant="10" id="90a-IT-VbT"/>
+                                                                <constraint firstAttribute="bottom" secondItem="JSp-va-3Ml" secondAttribute="bottom" constant="8" id="BGb-c6-8w8"/>
+                                                                <constraint firstAttribute="trailing" secondItem="JSp-va-3Ml" secondAttribute="trailing" constant="239" id="UBc-yh-kY7"/>
+                                                                <constraint firstItem="JSp-va-3Ml" firstAttribute="leading" secondItem="WIo-BI-rax" secondAttribute="leading" constant="10" id="Uf1-81-rA4"/>
+                                                                <constraint firstItem="Dow-3u-emx" firstAttribute="top" secondItem="WIo-BI-rax" secondAttribute="top" constant="4" id="jDL-0x-2j6"/>
+                                                            </constraints>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="UBc-yh-kY7"/>
+                                                                </mask>
+                                                            </variation>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="P1D-J5-8Fy" secondAttribute="bottom" id="0O7-8g-udF"/>
+                                                        <constraint firstItem="P1D-J5-8Fy" firstAttribute="leading" secondItem="jOw-HT-yjy" secondAttribute="leading" id="1SZ-3n-5Ck"/>
+                                                        <constraint firstItem="WIo-BI-rax" firstAttribute="leading" secondItem="P1D-J5-8Fy" secondAttribute="trailing" id="FMa-Yi-bJa"/>
+                                                        <constraint firstItem="P1D-J5-8Fy" firstAttribute="top" secondItem="jOw-HT-yjy" secondAttribute="top" id="VM9-Dz-w4b"/>
+                                                        <constraint firstAttribute="bottom" secondItem="WIo-BI-rax" secondAttribute="bottom" id="cFa-fD-OCc"/>
+                                                        <constraint firstItem="WIo-BI-rax" firstAttribute="top" secondItem="jOw-HT-yjy" secondAttribute="top" id="kbX-kV-fjP"/>
+                                                        <constraint firstItem="P1D-J5-8Fy" firstAttribute="width" secondItem="WIo-BI-rax" secondAttribute="width" id="nmd-ZB-lkP"/>
+                                                        <constraint firstAttribute="trailing" secondItem="WIo-BI-rax" secondAttribute="trailing" id="oDj-P5-BEa"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="6"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.72857092619999997" green="1" blue="0.32176076809999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="centerX" secondItem="jOw-HT-yjy" secondAttribute="centerX" id="43j-Hw-s4G"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="jOw-HT-yjy" secondAttribute="trailing" constant="6" id="FLD-UU-bqn"/>
+                                                <constraint firstAttribute="centerY" secondItem="jOw-HT-yjy" secondAttribute="centerY" id="I3I-Cu-Or5"/>
+                                                <constraint firstItem="jOw-HT-yjy" firstAttribute="leading" secondItem="qNs-2U-ewS" secondAttribute="leading" constant="6" id="Lxo-YF-axg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="jOw-HT-yjy" secondAttribute="bottom" constant="4" id="Qns-Wb-L3x"/>
+                                                <constraint firstItem="jOw-HT-yjy" firstAttribute="top" secondItem="qNs-2U-ewS" secondAttribute="topMargin" constant="4" id="y16-4s-dCe"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="43j-Hw-s4G"/>
+                                                    <exclude reference="I3I-Cu-Or5"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="floatingBGView" destination="jOw-HT-yjy" id="31u-VN-huE"/>
+                                            <outlet property="scoreALabel" destination="N8p-K5-Zss" id="5gx-QS-n5a"/>
+                                            <outlet property="scoreBLabel" destination="Dow-3u-emx" id="hqx-76-MaH"/>
+                                            <outlet property="teamALabel" destination="cjx-hJ-5Nu" id="kZA-Lg-qCa"/>
+                                            <outlet property="teamBLabel" destination="JSp-va-3Ml" id="be0-MD-4Pc"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.42082377300000001" green="0.72347119950000005" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Foosed" id="91z-b8-BKG"/>
+                    <connections>
+                        <outlet property="tableView" destination="qf2-7S-8wY" id="HuL-l4-G6s"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ut1-G7-0rc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1256" y="23"/>
+            <point key="canvasLocation" x="1180" y="-27"/>
         </scene>
     </scenes>
 </document>
